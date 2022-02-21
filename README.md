@@ -81,7 +81,7 @@ two actions:
 Difference between actions is that process with single workitem expects `body` content as a dictionary and will launch 1 Process step run in the Robocorp Control Room with the given
 input work item.
 
-The process with multiple workitems can be given multiple workitems in a list (list of dictionaries),which will trigger multiple Process step runs each with different input work item.
+The process with multiple workitems expects `body` content be given multiple workitems in a list (list of dictionaries), which will trigger multiple Process step runs each with different input work item.
 
 [Robocorp-Process-API.swagger.json](Robocorp-Process-API.swagger.json)
 
