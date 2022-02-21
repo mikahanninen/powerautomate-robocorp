@@ -94,8 +94,8 @@ Set name for the permission and add `trigger_processes` permission.
 ![API key name and permission](images/control_room_api_setup_2.png)
 
 On the first launch the Power Automate Connection must be created with the Robocorp Control Room
-API key. Give Connection some easy to remember name so that you can identify it for your other
-Connections.
+API key. Give Connection some easy to remember name so that you can identify it from your other
+Power Automate Connections.
 
 ![Create connection](images/add_connection_1.png)
 ![Add connection](images/add_connection_2.png)
