@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Robocorp",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "api.eu1.robocorp.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/process-v1/workspaces/:workspace_id/processes/:process_id/runs": {},
+    "/process-v1/workspaces/{workspace_id}/processes/{process_id}/runs": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "workItemIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "workItemIds"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Trigger Process with single workitem",
+        "operationId": "TriggerProcessWithSIngleWorkitem",
+        "description": "Trigger Robocorp Process with single work item",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "process_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ]
+      }
+    },
+    "/process-v1/workspaces/{workspace_id}/processes/{process_id}/runs-batch": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Trigger Process with multiple workitems",
+        "operationId": "TriggerProcessWithMultipleWorkitems",
+        "description": "Trigger Robocorp Process with multiple work items",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "process_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key1": {
+                    "type": "string",
+                    "description": "key1",
+                    "title": "Work Item 1"
+                  },
+                  "key2": {
+                    "type": "string",
+                    "description": "key2",
+                    "title": "Work Item 2"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "API Key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "security": [
+    {
+      "API Key": []
+    }
+  ],
+  "tags": []
+}

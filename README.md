@@ -68,3 +68,42 @@ Link. [https://flow.microsoft.com](https:/flow.microsoft.com)
 
 ![Result in the log.html](images/log_of_the_result.png)
 
+## Robocorp Power Automate custom connector
+
+This method can be used to launch Robocorp Process via API with Power Automate custom connector.
+
+Import attached JSON file as a custom connector into Power Automate. Connector contains at the moment
+two actions:
+
+- Trigger Process with single workitem
+- Trigger Process with multiple workitems
+
+Difference between actions is that process with single workitem expects `body` content as a dictionary and will launch 1 Process step run in the Robocorp Control Room with the given
+input work item.
+
+The process with multiple workitems can be given multiple workitems in a list (list of dictionaries),which will trigger multiple Process step runs each with different input work item.
+
+[Robocorp-Process-API.swagger.json](Robocorp-Process-API.swagger.json)
+
+### Get Robocorp Control Room API key
+
+![Create Workspace API Access key](images/configure_process_1.png)
+
+Set name for the permission and add `trigger_processes` permission.
+
+![API key name and permission](images/configure_process_2.png)
+
+On the first launch the Power Automate Connection must be created with the Robocorp Control Room
+API key. Give Connection some easy to remember name so that you can identify it for your other
+Connections.
+
+![Create connection](images/add_connection_1.png)
+![Add connection](images/add_connection_2.png)
+
+API Key must be inserted in the following format:
+
+```shell
+RC-WSKEY <COPY OF CONTROL ROOM API TOKEN IN HERE>
+```
+
+Notice the SPACE character between `RC-WSKEY` and the token.
