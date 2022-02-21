@@ -87,11 +87,11 @@ The process with multiple workitems expects `body` content be given multiple wor
 
 ### Get Robocorp Control Room API key
 
-![Create Workspace API Access key](images/configure_process_1.png)
+![Create Workspace API Access key](images/control_room_api_setup_1.png)
 
 Set name for the permission and add `trigger_processes` permission.
 
-![API key name and permission](images/configure_process_2.png)
+![API key name and permission](images/control_room_api_setup_2.png)
 
 On the first launch the Power Automate Connection must be created with the Robocorp Control Room
 API key. Give Connection some easy to remember name so that you can identify it for your other
