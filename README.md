@@ -107,3 +107,13 @@ RC-WSKEY <COPY OF CONTROL ROOM API TOKEN IN HERE>
 ```
 
 Notice the SPACE character between `RC-WSKEY` and the token.
+
+### Power Automate step configuration
+
+The selected action needs 3 configuration parameters set.
+
+1. **workspace_id** - this can be get from Robocorp Control Room settings
+2. **process_id** - this can be get from Robocorp  Control Room process
+3. **body** - this is a work item content which for `Trigger Process with single workitem` needs
+to be a dictionary, and for `Trigger Process with multiple workitems` action needs to be list
+of dictionaries.
