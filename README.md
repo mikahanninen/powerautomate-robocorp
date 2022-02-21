@@ -64,7 +64,7 @@ between placeholder texts.
 
 Link. [https://flow.microsoft.com](https:/flow.microsoft.com)
 
-## Result
+## Control Room step run result (log.html)
 
 ![Result in the log.html](images/log_of_the_result.png)
 
