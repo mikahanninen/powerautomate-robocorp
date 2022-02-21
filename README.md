@@ -114,6 +114,11 @@ The selected action needs 3 configuration parameters set.
 
 1. **workspace_id** - this can be get from Robocorp Control Room settings
 2. **process_id** - this can be get from Robocorp  Control Room process
-3. **body** - this is a work item content which for `Trigger Process with single workitem` needs
+3. **body** - this is a work item content which for `Trigger Process with single workitem` action needs
 to be a dictionary, and for `Trigger Process with multiple workitems` action needs to be list
 of dictionaries.
+
+### About `body` content
+
+For `Trigger Process with single workitem` action `body` can be given empty dictionary ``{}`` to indicate that process
+is started with empty work item.
