@@ -68,7 +68,7 @@ Link. [https://flow.microsoft.com](https:/flow.microsoft.com)
 
 ![Result in the log.html](images/log_of_the_result.png)
 
-## Robocorp Power Automate custom connector
+## (ALTERNATIVE) Robocorp Power Automate custom connector
 
 This method can be used to launch Robocorp Process via API with Power Automate custom connector.
 
