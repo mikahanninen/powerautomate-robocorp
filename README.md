@@ -51,12 +51,12 @@ Link. [https://cloud.robocorp.com](https://cloud.robocorp.com)
 
 Create a flow into Microsoft Power Automate. You can start with the blank flow. The flow consists of three steps.
 
-**Step 3.1.** Sharepoint. "When an item is created". This step requires that we will configure Sharepoint site address and the name of the list.
+**Step 3.1.** Sharepoint. **"When an item is created"**. This step requires that we will configure Sharepoint site address and the name of the list.
 
-**Step 3.2.** Sharepoint. "Get item". This step requires that we will configure Sharepoint site address, the name of the list and the Id of the Item
+**Step 3.2.** Sharepoint. **"Get item"**. This step requires that we will configure Sharepoint site address, the name of the list and the Id of the Item
 (for the Id we will be using the ID from step 1). The Body returned by "Get Item" is a dictionary containing all fields in the Item.
 
-**Step 3.3.** Email. "Send an email notification (V3)". This step requires that we will configure `To` address (put here the Robocorp Process trigger email
+**Step 3.3.** Email. **"Send an email notification (V3)"**. This step requires that we will configure `To` address (put here the Robocorp Process trigger email
 address from Step 2), `Subject` can be anything because our Robot is not using that information and in the `Body` place the `Body` from step 3.2 "Get Item"
 between placeholder texts.
 
