@@ -4,8 +4,9 @@ Library           SharepointLibrary
 
 *** Keywords ***
 Handle Issue
-    ${mail} =    Get Work Item Variable    parsedEmail
-    &{issue}=    Get Sharepoint Issue From Email Body    ${mail}[Body]
+    ${mail}=    Get Work Item Variable    email
+    &{issue}=    Get Sharepoint Issue From Email Body    ${mail}[text]
+    Log To Console    issue: ${issue}
     FOR    ${key}    IN    @{issue.keys()}
         Log    ${key}: ${issue}[${key}]
     END
