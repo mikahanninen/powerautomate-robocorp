@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Robocorp",
-    "description": "",
+    "description": "Swagger definition for Robocorp Process API. Read more at [Robocorp Process API documentation](https://robocorp.com/docs/control-room/apis-and-webhooks/process-api).",
     "version": "1.0"
   },
   "host": "api.eu1.robocorp.com",
@@ -111,6 +111,268 @@
                 }
               }
             }
+          }
+        ]
+      }
+    },
+    "/process-v1/workspaces/{workspace_id}/processes/{process_id}/work-items": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Create Input Work Item",
+        "operationId": "CreateInputWorkItem",
+        "description": "Create input work item for a process",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "process_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bodyAsPayload",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "default": "true"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/process-v1/workspaces/{workspace_id}/processes/{process_id}/work-items/{work_item_id}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "state": {
+                  "type": "string",
+                  "description": "state"
+                },
+                "stateTs": {
+                  "type": "string",
+                  "description": "stateTs"
+                },
+                "createTs": {
+                  "type": "string",
+                  "description": "createTs"
+                },
+                "queueTs": {
+                  "type": "string",
+                  "description": "queueTs"
+                },
+                "workspaceId": {
+                  "type": "string",
+                  "description": "workspaceId"
+                },
+                "processId": {
+                  "type": "string",
+                  "description": "processId"
+                },
+                "processRunId": {
+                  "type": "string",
+                  "description": "processRunId"
+                },
+                "activityId": {
+                  "type": "string",
+                  "description": "activityId"
+                },
+                "activityRunId": {
+                  "type": "string",
+                  "description": "activityRunId"
+                },
+                "batchPriority": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "batchPriority"
+                },
+                "processRunNo": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "processRunNo"
+                },
+                "processName": {
+                  "type": "string",
+                  "description": "processName"
+                },
+                "payload": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "payload"
+                },
+                "files": {
+                  "type": "array",
+                  "items": {},
+                  "description": "files"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get Work Item",
+        "operationId": "GetWorkItem",
+        "description": "Get Work Item",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "process_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "work_item_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "includeData",
+            "in": "query",
+            "required": true,
+            "type": "boolean",
+            "default": true
+          }
+        ]
+      }
+    },
+    "/process-v1/workspaces/{workspace_id}/processes/{process_id}/runs/{process_run_id}/robotRuns/{robot_run_id}/artifacts": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "id"
+                  },
+                  "fileName": {
+                    "type": "string",
+                    "description": "fileName"
+                  },
+                  "fileSIze": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "fileSIze"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "List Robot Run Artifacts",
+        "operationId": "ListRobotRunArtifacts",
+        "description": "List Robot Run Artifacts",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "process_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "process_run_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "robot_run_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/process-v1/workspaces/{workspace_id}/processes/{process_id}/runs/{process_run_id}/robotRuns/{robot_run_id}/artifacts/{artifactId}/{fileName}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "Get a Robot Artifact",
+        "operationId": "GetRobotArtifact",
+        "description": "Get a Robot Artifact",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "process_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "process_run_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "robot_run_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "artifactId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "fileName",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ]
       }
