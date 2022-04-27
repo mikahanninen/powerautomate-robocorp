@@ -72,11 +72,19 @@ Link. [https://flow.microsoft.com](https:/flow.microsoft.com)
 
 This method can be used to launch Robocorp Process via API with Power Automate custom connector.
 
-Import attached JSON file as a custom connector into Power Automate. Connector contains at the moment
-two actions:
+Import attached JSON file as a custom connector into Power Automate.
+
+Add `New Custom Connector` in Power Automate with option `Update From OpenAPI URL` and
+give as URL to RAW Github file URL: https://raw.githubusercontent.com/mikahanninen/powerautomate-robocorp/main/Robocorp-Process-API.swagger.json
+
+Connector contains at the moment two actions:
 
 - Trigger Process with single workitem
 - Trigger Process with multiple workitems
+- Create Input Work Item
+- Get Work Item
+- List Robot Run Artifacts
+- Get a Robot Artifact
 
 Difference between actions is that process with single workitem expects `body` content as a dictionary and will launch 1 Process step run in the Robocorp Control Room with the given
 input work item.
