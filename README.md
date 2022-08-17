@@ -91,8 +91,6 @@ input work item.
 
 The process with multiple workitems expects `body` content be given multiple workitems in a list (list of dictionaries), which will trigger multiple Process step runs each with different input work item.
 
-[Robocorp-Process-API.swagger.json](Robocorp-Process-API.swagger.json)
-
 ### Get Robocorp Control Room API key
 
 ![Create Workspace API Access key](images/control_room_api_setup_1.png)

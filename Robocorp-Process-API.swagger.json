@@ -38,7 +38,7 @@
           }
         },
         "summary": "Trigger Process with single workitem",
-        "operationId": "TriggerProcessWithSIngleWorkitem",
+        "operationId": "TriggerProcessWithSingleWorkitem",
         "description": "Trigger Robocorp Process with single work item",
         "parameters": [
           {
@@ -58,8 +58,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {}
+              "type": "string"
             }
           }
         ]
@@ -96,19 +95,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "key1": {
-                    "type": "string",
-                    "description": "key1",
-                    "title": "Work Item 1"
-                  },
-                  "key2": {
-                    "type": "string",
-                    "description": "key2",
-                    "title": "Work Item 2"
-                  }
-                }
+                "type": "string"
               }
             }
           }
@@ -370,6 +357,48 @@
           },
           {
             "name": "fileName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/process-v1/workspaces/{workspace_id}/processes": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "List Processes",
+        "description": "List Processes",
+        "operationId": "ListProcesses",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/process-v1/workspaces/{workspace_id}/pruns": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "List All Process Runs for a Workspace",
+        "description": "List All Process Runs for a Workspace",
+        "operationId": "ListProcessRunsWorkspace",
+        "parameters": [
+          {
+            "name": "workspace_id",
             "in": "path",
             "required": true,
             "type": "string"
