@@ -4,6 +4,18 @@ This example will use Microsoft Power Automate flow to monitor new items
 on Sharepoint list and on each new item will trigger a Robocorp Control Room
 process with email.
 
+## Triggering process run with NEW state work item
+
+Use flow action "Trigger Process" and fill in the `workspace_id`, `process_id`
+and the following `body`.
+
+```json
+{
+  "type": "workItemIds",
+  "workItemIds": ["82f28d74-a857-4b13-b87f-42dd2d13039d"]
+}
+```
+
 ## About Sharepoint list item details
 
 This example will read Sharepoint list `Item` contents from the email body of
@@ -27,8 +39,8 @@ The Power Automate sends email body as HTML and it can't be configured to plain 
 Due to this restriction we will be sending item from Power Automate within placeholder texts to identify `Item` in the email body.
 The `Item` will be placed between **ITEMBODYSTART** and **ITEMBODYEND** texts (this will happen at step 3.)
 
-Robot is using custom library (``SharepointLibrary.py``) to get the `Item` from the email and
-``RPA.Robocorp.WorkItems`` library to read work item variable `parsedEmail` which is a variable
+Robot is using custom library (`SharepointLibrary.py`) to get the `Item` from the email and
+`RPA.Robocorp.WorkItems` library to read work item variable `parsedEmail` which is a variable
 automatically provided by the library when Work Item has been triggered with email.
 The `parsedEmail` contains all email fields, but in this example we will using only `Body`
 field.
@@ -38,7 +50,7 @@ Robot will then output all the key-value pairs of the Sharepoint Item.
 ### Step 2. Configure a process in Robocorp Control Room
 
 Upload Robot to your Robocorp Control Room Workspace. Create new process into Control Room and from `Configure Process` add a step
-executing ``Power Automating`` task of this Robot. Still in the `Configure process` switch to `Schedules & Triggers` and add
+executing `Power Automating` task of this Robot. Still in the `Configure process` switch to `Schedules & Triggers` and add
 `Trigger the process with email` - this will generate unique email address which can be used to trigger this Process with an email.
 Make a copy of the email address as it is needed when we will in the next step configure Power Automate.
 
@@ -79,8 +91,7 @@ give as URL to RAW Github file URL: https://raw.githubusercontent.com/mikahannin
 
 Connector contains at the moment two actions:
 
-- Trigger Process with single workitem
-- Trigger Process with multiple workitems
+- Trigger Process
 - Create Input Work Item
 - Get Work Item
 - List Robot Run Artifacts
@@ -121,12 +132,5 @@ Notice the SPACE character between `RC-WSKEY` and the token.
 The selected action needs 3 configuration parameters set.
 
 1. **workspace_id** - this can be get from Robocorp Control Room settings
-2. **process_id** - this can be get from Robocorp  Control Room process
-3. **body** - this is a work item content which for `Trigger Process with single workitem` action needs
-to be a dictionary, and for `Trigger Process with multiple workitems` action needs to be list
-of dictionaries.
-
-### About `body` content
-
-For `Trigger Process with single workitem` action `body` can be given empty dictionary ``{}`` to indicate that process
-is started with empty work item.
+2. **process_id** - this can be get from Robocorp Control Room process
+3. **body** - this is a work item content which for `Trigger Process` action needs
