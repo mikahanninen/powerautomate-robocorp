@@ -13,8 +13,8 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "/process-v1/workspaces/:workspace_id/processes/:process_id/run-request": {},
-    "/process-v1/workspaces/{workspace_id}/processes/{process_id}/run-request": {
+    "/process-v1/workspaces/:workspace_id/processes/:process_id/runs": {},
+    "/process-v1/workspaces/{workspace_id}/processes/{process_id}/runs": {
       "post": {
         "responses": {
           "default": {
@@ -37,9 +37,9 @@
             }
           }
         },
-        "summary": "Trigger Process",
-        "operationId": "TriggerProcessConfiguration",
-        "description": "Trigger Robocorp Process with workitem(s) or by default configuration",
+        "summary": "Trigger Process with single workitem",
+        "operationId": "TriggerProcessWithSIngleWorkitem",
+        "description": "Trigger Robocorp Process with single work item",
         "parameters": [
           {
             "name": "workspace_id",
@@ -60,6 +60,56 @@
             "schema": {
               "type": "object",
               "properties": {}
+            }
+          }
+        ]
+      }
+    },
+    "/process-v1/workspaces/{workspace_id}/processes/{process_id}/runs-batch": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Trigger Process with multiple workitems",
+        "operationId": "TriggerProcessWithMultipleWorkitems",
+        "description": "Trigger Robocorp Process with multiple work items",
+        "parameters": [
+          {
+            "name": "workspace_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "process_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key1": {
+                    "type": "string",
+                    "description": "key1",
+                    "title": "Work Item 1"
+                  },
+                  "key2": {
+                    "type": "string",
+                    "description": "key2",
+                    "title": "Work Item 2"
+                  }
+                }
+              }
             }
           }
         ]
